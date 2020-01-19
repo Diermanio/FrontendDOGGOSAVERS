@@ -10,6 +10,7 @@ import Lista from "./ListaMascotas";
     
     
     render() {
+
       return (
         <View style={styles.parent}>
             <Banner ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />

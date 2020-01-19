@@ -8,11 +8,11 @@ import PerrosPE from "./PerrosPE";
 
 const AppNavigator = createStackNavigator(
     {
-        Home: Menu,
-        PerrosP_E: PerrosPE,
+        Home: { screen: Menu},
+        PerrosP_E: { screen: PerrosPE},
     },
     {
-        initialRouteName: 'PerrosP_E',
+        initialRouteName: 'Home',
     }
 );
 

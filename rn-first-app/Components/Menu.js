@@ -4,19 +4,22 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import Banner from "./Banner";
 import MenuOpciones from "./MenuOpciones";
 import MenuTitulo from "./MenuTitulo";
-
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 
   class Menu extends React.Component {
 
-    static navigationOptions = { headerShown: false }
+    static navigationOptions = { headerShown: false, title: 'Welcome', }
 
     render() {
+      const macotasp_e = () => this.props.navigation.navigate('PerrosP_E');
+
       return (
         <View style={styles.container}>
-          <Banner ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
+          <Banner  ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
         
-          <View >
+          <View  >
             <Image  style={styles.image} resizeMode="contain" source={require('../assets/peth.png')}/>
           </View>
     
@@ -25,7 +28,7 @@ import MenuTitulo from "./MenuTitulo";
               <MenuTitulo />
             </View>
             <View >
-              <MenuOpciones />
+              <MenuOpciones ppe={macotasp_e}/>
             </View>
           </View>
     

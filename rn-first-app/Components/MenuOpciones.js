@@ -12,7 +12,7 @@ const MenuOpciones = props =>{
            </View>
            <View style={styles.fila} >
             <MenuOpcion Texto="Reporta mascotas perdidas o encontradas" Imagen={require("../assets/peth.png")} />
-            <MenuOpcion Texto="Explora mascotas perdidas y encontradas" Imagen={require("../assets/peth.png")} />
+            <MenuOpcion ppe={props.ppe} Texto="Explora mascotas perdidas y encontradas" Imagen={require("../assets/peth.png")} />
            </View>
         </View>
   );}
