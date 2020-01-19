@@ -5,13 +5,13 @@ const Banner = props =>{
     return (
     <View style={styles.banner}>
         <View  style={styles.circle}>
-          <Image style={styles.image}  resizeMode="contain" source={require('../assets/peth.png')}/>
+          <Image style={styles.image}  resizeMode="contain" source={props.ImagenIzq}/>
         </View>
         <View>
           <Text style={styles.title}>Bienvenido a DOGGOSAVERS</Text>
         </View>
         <View style={styles.circle} > 
-          <Image style={styles.image}   resizeMode="contain" source={require('../assets/dogwalk.png')}/>
+          <Image style={styles.image}   resizeMode="contain" source={props.ImagenDer}/>
         </View>
     </View> 
   );}

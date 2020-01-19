@@ -14,10 +14,10 @@ import MenuTitulo from "./MenuTitulo";
     render() {
       return (
         <View style={styles.container}>
-          <Banner />
+          <Banner ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
         
           <View >
-            <Image style={styles.image} resizeMode="contain" source={require('../assets/peth.png')}/>
+            <Image  style={styles.image} resizeMode="contain" source={require('../assets/peth.png')}/>
           </View>
     
           <View >

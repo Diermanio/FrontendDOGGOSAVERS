@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 const MenuOpcion = props =>{
     return (
-        <View style={styles.fondo2}> 
+        <View style={styles.fondo2} > 
             <Image style={styles.image}  resizeMode="contain" source={props.Imagen}/>
             <Text style={styles.text}>{props.Texto}</Text>
         </View> 

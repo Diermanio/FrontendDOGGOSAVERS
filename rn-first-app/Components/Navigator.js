@@ -4,14 +4,15 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Menu from "./Menu";
-
+import PerrosPE from "./PerrosPE";
 
 const AppNavigator = createStackNavigator(
     {
-        LALA: Menu
+        Home: Menu,
+        PerrosP_E: PerrosPE,
     },
     {
-        initialRouteName: 'LALA',
+        initialRouteName: 'Home',
     }
 );
 

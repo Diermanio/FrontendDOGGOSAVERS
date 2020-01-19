@@ -10,7 +10,7 @@ const MenuOpciones = props =>{
             <MenuOpcion Texto="Juega y descubre tu macota ideal" Imagen={require("../assets/peth.png")} />
             <MenuOpcion Texto="Adopta a un compañero" Imagen={require("../assets/peth.png")} />
            </View>
-           <View style={styles.fila}>
+           <View style={styles.fila} >
             <MenuOpcion Texto="Reporta mascotas perdidas o encontradas" Imagen={require("../assets/peth.png")} />
             <MenuOpcion Texto="Explora mascotas perdidas y encontradas" Imagen={require("../assets/peth.png")} />
            </View>
