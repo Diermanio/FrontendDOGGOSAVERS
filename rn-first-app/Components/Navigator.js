@@ -7,6 +7,8 @@ import Menu from "./Menu";
 import PerrosPE from "./PerrosPE";
 import InfoMascota from "./InfoMascota";
 import Adoptar from "./AdoptarMascota";
+import Reportar from "./ReportarMascota";
+import Registrar from "./RegistrarMasccota";
 
 const AppNavigator = createStackNavigator(
     {
@@ -14,6 +16,8 @@ const AppNavigator = createStackNavigator(
         PerrosP_E: { screen: PerrosPE},
         InfoM: { screen: InfoMascota},
         Adop: { screen: Adoptar},
+        Rep: { screen: Reportar},
+        Reg: { screen: Registrar},
     },
     {
         initialRouteName: 'Home',

@@ -15,6 +15,7 @@ import { createStackNavigator } from 'react-navigation-stack';
     render() {
       const macotasp_e = () => this.props.navigation.navigate('PerrosP_E');
       const adoptar = () => this.props.navigation.navigate('Adop');
+      const reportar = () => this.props.navigation.navigate('Rep');
       return (
         <View style={styles.container}>
           <Banner titulo="Bienvenido a DOGGOSAVERS" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
@@ -28,7 +29,7 @@ import { createStackNavigator } from 'react-navigation-stack';
               <MenuTitulo />
             </View>
             <View >
-              <MenuOpciones ppe={macotasp_e} adop={adoptar} />
+              <MenuOpciones ppe={macotasp_e} adop={adoptar} rep={reportar} />
             </View>
           </View>
     
