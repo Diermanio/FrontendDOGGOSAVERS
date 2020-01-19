@@ -5,7 +5,7 @@ import Navigator from "./Components/Navigator"
 import Menu from "./Components/Menu";
 export default function App() {
   return (
-    <Menu />
+    <Navigator />
   );
 }
 

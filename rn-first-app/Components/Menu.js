@@ -5,8 +5,14 @@ import Banner from "./Banner";
 import MenuOpciones from "./MenuOpciones";
 import MenuTitulo from "./MenuTitulo";
 
-const Menu = props =>{
-    return (
+
+
+  class Menu extends React.Component {
+
+    static navigationOptions = { headerShown: false }
+
+    render() {
+      return (
         <View style={styles.container}>
           <Banner />
         
@@ -25,9 +31,8 @@ const Menu = props =>{
     
         </View>
       );
+    }
   }
-
-
 
 
   const styles = StyleSheet.create({
