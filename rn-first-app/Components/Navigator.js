@@ -12,7 +12,7 @@ const AppNavigator = createStackNavigator(
         PerrosP_E: PerrosPE,
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'PerrosP_E',
     }
 );
 
