@@ -8,7 +8,7 @@ const Banner = props =>{
           <Image style={styles.image}  resizeMode="contain" source={props.ImagenIzq}/>
         </View>
         <View>
-          <Text style={styles.title}>Bienvenido a DOGGOSAVERS</Text>
+            <Text style={styles.title}>{props.titulo}</Text>
         </View>
         <View style={styles.circle} > 
           <Image style={styles.image}   resizeMode="contain" source={props.ImagenDer}/>

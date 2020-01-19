@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Picker, Modal, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Picker, Modal, Button, TouchableHighlight } from 'react-native';
 
 import MenuOpcion from "./MenuOpcion";
 
 const FotoMasccota = props =>{
     
     return (
+      <TouchableHighlight onPress={props.nexts}>
         <View style={styles.fondo2}>
             <Image style={styles.image}  resizeMode="contain" source={props.image}/>
-        <Text  style={styles.text}>{props.nombre}</Text>
+            <Text  style={styles.text}>{props.nombre}</Text>
         </View>
+        </TouchableHighlight>
   );};
 
 

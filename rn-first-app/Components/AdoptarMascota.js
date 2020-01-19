@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Picker } from 'react-native';
 
 import Banner from "./Banner";
-import Pref from "./Preferencias";
+import Pref from "./PrefAdop";
 import Lista from "./ListaMascotas";
-  class PerrosEP extends React.Component {
+
+  class AdoptarMascota extends React.Component {
 
     static navigationOptions = { headerShown: false };
     
@@ -13,7 +14,7 @@ import Lista from "./ListaMascotas";
       const infom = () => this.props.navigation.navigate('InfoM');
       return (
         <View style={styles.parent}>
-            <Banner titulo="Mascotas Perdidas/Encontradas" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo="Adoptar Macota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
             <Pref />
             <Lista nexts={infom} />
         </View>
@@ -29,4 +30,4 @@ import Lista from "./ListaMascotas";
     
   });
 
-export default PerrosEP;
+export default AdoptarMascota;

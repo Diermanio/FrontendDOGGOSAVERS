@@ -7,7 +7,7 @@ const ListaMascotas = props =>{
     
     return (
         <ScrollView style={styles.contenedor}>
-            {mascotas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.img}/>)}
+            {mascotas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.img} nexts={props.nexts}/>)}
         </ScrollView>
         
   );};
