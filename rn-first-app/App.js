@@ -1,29 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-import Banner from "./Components/Banner";
-import MenuOpciones from "./Components/MenuOpciones";
-import MenuTitulo from "./Components/MenuTitulo";
-
+import Navigator from "./Components/Navigator"
+import Menu from "./Components/Menu";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Banner />
-    
-      <View >
-        <Image style={styles.image} resizeMode="contain" source={require('./assets/peth.png')}/>
-      </View>
-
-      <View >
-        <View >
-          <MenuTitulo />
-        </View>
-        <View >
-          <MenuOpciones />
-        </View>
-      </View>
-
-    </View>
+    <Menu />
   );
 }
 
