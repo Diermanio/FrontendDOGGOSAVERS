@@ -45,8 +45,8 @@ const Preferencias = props =>{
                     onValueChange={(itemValue, itemIndex) =>
                         setCurrentEdad(itemValue)
                     }>
-                    <Picker.Item label="Java" value="java" />
-                    <Picker.Item label="JavaScript" value="js" />
+                    <Picker.Item label="Joven" value="Joven" />
+                    <Picker.Item label="Adulto" value="Adulto" />
                 </Picker>
                 <Text>Estado</Text>
                 <Picker
@@ -55,8 +55,8 @@ const Preferencias = props =>{
                     onValueChange={(itemValue, itemIndex) =>
                         setCurrentPe(itemValue)
                     }>
-                    <Picker.Item label="Java" value="java" />
-                    <Picker.Item label="JavaScript" value="js" />
+                    <Picker.Item label="Perdida" value="Perdida" />
+                    <Picker.Item label="Encontrada" value="Encontrada" />
                 </Picker>
                 <Button title="Aceptar" onPress={()=> setAddMode(false)} />
                 </Modal>

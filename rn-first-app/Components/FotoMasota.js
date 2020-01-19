@@ -7,8 +7,8 @@ const FotoMasccota = props =>{
     
     return (
         <View style={styles.fondo2}>
-            <Image style={styles.image}  resizeMode="contain" source={require("../assets/perro.jpg")}/>
-            <Text  style={styles.text}>Nombre</Text>
+            <Image style={styles.image}  resizeMode="contain" source={props.image}/>
+        <Text  style={styles.text}>{props.nombre}</Text>
         </View>
   );};
 
