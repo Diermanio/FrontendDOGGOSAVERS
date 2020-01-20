@@ -1,21 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 const Banner = props =>{
-  const perfil=() => this.props.navigation.navigate('Perfil');
     return (
     <View style={styles.banner}>
         <View  style={styles.circle}>
           <Image style={styles.image}  resizeMode="contain" source={props.ImagenIzq}/>
         </View>
-        <View>
-            <Text style={styles.title}>{props.titulo}</Text>
+        <View style={styles.title}>
+            <Text >{props.titulo}</Text>
         </View>
-        <TouchableHighlight onPress={perfil}>
-        <View style={styles.circle} onPress={perfil}> 
-          <Image  style={styles.image}   resizeMode="contain" source={props.ImagenDer}/>
-        </View>
-        </TouchableHighlight>
     </View> 
   );}
 
@@ -35,7 +29,7 @@ const styles = StyleSheet.create({
   image: {
     width: 40,
     height: 40,
-    margin:3,
+    margin:1,
   },
   circle:{
     borderColor: 'black',
