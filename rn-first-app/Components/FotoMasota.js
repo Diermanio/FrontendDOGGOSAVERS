@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Picker, Modal, Button, TouchableHighlight } from 'react-native';
 
 import MenuOpcion from "./MenuOpcion";
+import {macota} from "../Global/global";
+
 
 const FotoMasccota = props =>{
-    
+    const func=()=> props.nav.navigate('InfoM',{
+      nombre:props.nombre,
+      raza:props.raza,
+      peso:props.peso,
+      altura:props.altura,
+      edad:props.edad,
+      dueño:"jeje",
+      detalle:props.detalle,
+    });
+
     return (
-      <TouchableHighlight onPress={props.nexts}>
+      <TouchableHighlight onPress={func}>
         <View style={styles.fondo2}>
-            <Image style={styles.image}  resizeMode="contain" source={props.image}/>
+            <Image style={styles.image}  resizeMode="contain" source={require("../assets/perro.jpg")}/>
             <Text  style={styles.text}>{props.nombre}</Text>
         </View>
         </TouchableHighlight>

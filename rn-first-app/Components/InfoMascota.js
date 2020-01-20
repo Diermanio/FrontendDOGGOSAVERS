@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Picker, ScrollView } from 'react-native';
 
+
 import Banner from "./Banner";
 
   class PerrosEP extends React.Component {
@@ -9,43 +10,43 @@ import Banner from "./Banner";
     
     
     render() {
-        
+      const { params } = this.props.navigation.state;
       return (
         <ScrollView style={styles.parent}>
-            <Banner titulo="Toby" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo={params.nombre} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
             <View  style={styles.bloque3}>
                 <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
             </View>
             <View style={styles.bloque2}>
                 <Text>Historia</Text>
                 <View>
-                    <Text style={styles.caja}>Se murio :,v</Text>
+                    <Text style={styles.caja}>{params.detalle}</Text>
                 </View>
             </View>
             <View style={styles.fila}>
                 <View style={styles.bloque}>
                     <Text>Raza</Text>
-                    <Text style={styles.caja}>Husky</Text>
+                    <Text style={styles.caja}>{params.raza}</Text>
                 </View>
                 <View style={styles.bloque}>
                     <Text>Peso</Text>
-                    <Text style={styles.caja}>24 Kg</Text>
+                    <Text style={styles.caja}>{params.peso}</Text>
                 </View>
             </View>
             <View style={styles.fila}>
                 <View style={styles.bloque}>
                     <Text>Altura</Text>
-                    <Text style={styles.caja}>53 cm</Text>
+                    <Text style={styles.caja}>{params.altura}</Text>
                 </View>
                 <View style={styles.bloque}>
                     <Text>Edad</Text>
-                    <Text style={styles.caja}>5 años</Text>
+                    <Text style={styles.caja}>{params.edad}</Text>
                 </View >
             </View>
             <View style={styles.fila}>
                <View style={styles.bloque}>
                     <Text>Dueño</Text>
-                    <Text style={styles.caja}>Carlos</Text>
+                    <Text style={styles.caja}>{params.dueño}</Text>
                 </View>
             </View>
         </ScrollView>
