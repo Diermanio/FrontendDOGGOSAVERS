@@ -5,8 +5,29 @@ import MenuOpcion from "./MenuOpcion";
 
 const DatosReporte = props =>{
     const [currentPE, setCurrentPe] = useState("");
+    const [currentDetalle, setCurrentDetalle] = useState("");
+    const [currentDireccion, setCurrentDireccion] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
     
+    const func= () =>{ 
+        fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id_mascota:2,
+            id_user:1,
+            estado_mascota: currentPE,
+            sector_encuentro_perdida: currentDireccion,
+            detalle:currentDetalle,
+          }),
+        }).catch( error => {
+            console.error(error);
+          });;
+    };
+
     return (
         <View style={styles.parent}>
             <View style={styles.fila}>
@@ -21,17 +42,17 @@ const DatosReporte = props =>{
                         onValueChange={(itemValue, itemIndex) =>
                             setCurrentPe(itemValue)
                         }>
-                        <Picker.Item label="Perdida" value="Perdida" />
-                        <Picker.Item label="Encontrada" value="Encontrada" />
+                        <Picker.Item label="Perdida" value="PE" />
+                        <Picker.Item label="Encontrada" value="EN" />
             </Picker>
             <Text>Detalle</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentDetalle(nombre)} />
             <View style={styles.fila}> 
                 <Text>Dirección</Text>
                 <Button title="+"/>
             </View>
-            <TextInput />
-            <Button title="Aceptar" onPress={props.gback}/>
+            <TextInput onChangeText={(nombre) => setCurrentDireccion(nombre)} />
+            <Button title="Aceptar" onPress={func}/>
   
       </View>
   );}

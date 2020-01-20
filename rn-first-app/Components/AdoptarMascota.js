@@ -16,7 +16,7 @@ import Lista from "./ListaMascotas";
         <View style={styles.parent}>
             <Banner titulo="Adoptar Macota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
             <Pref />
-            <Lista nexts={infom} />
+            <Lista nexts={infom} nav={this.props.navigation} />
         </View>
       );
     }

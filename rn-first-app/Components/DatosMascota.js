@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, Picker, TextInput, Button, ScrollView } from 'react-native';
 
 import MenuOpcion from "./MenuOpcion";
@@ -8,6 +8,37 @@ const DatosMascota = props =>{
     const [currentSexo, setCurrentSexo] = useState("");
     const [currentRaza, setCurrentRaza] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
+
+    const [currentAltura, setCurrentAltura] = useState("");
+    const [currentNombre, setCurrentNombre] = useState("");
+    const [currentDetalle, setCurrentDetalle] = useState("");
+    const [currentEdad, setCurrentEdad] = useState("");
+    const [currentPeso, setCurrentPeso] = useState("");
+
+    const func= () =>{ 
+        fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            tipo_mascota: currentTipo,
+            nombre: currentNombre,
+            sexo: currentSexo,
+            altura: currentAltura,
+            peso: currentPeso,
+            edad_aproximada: currentEdad,
+            imagen: "http://asdad.jpg",
+            detalles: currentDetalle,
+            razas: currentRaza
+            
+          }),
+        }).catch( error => {
+            console.error(error);
+          });;
+    };
+
     return (
         <ScrollView style={styles.parent}>
             <View style={styles.fila}>
@@ -16,7 +47,7 @@ const DatosMascota = props =>{
             </View>
             <Image style={styles.imag}  resizeMode="contain" source={require("../assets/default.png")}/>
             <Text>Nombre</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentNombre(nombre)}/>
             <Text>Tipo</Text>
             <Picker
                         selectedValue={currentTipo}
@@ -24,8 +55,8 @@ const DatosMascota = props =>{
                         onValueChange={(itemValue, itemIndex) =>
                             setCurrentTipo(itemValue)
                         }>
-                        <Picker.Item label="Gato" value="Gato" />
-                        <Picker.Item label="Perro" value="Perro" />
+                        <Picker.Item label="Gato" value="GA" />
+                        <Picker.Item label="Perro" value="PE" />
             </Picker>
             <Text>Sexo</Text>
             <Picker
@@ -34,8 +65,8 @@ const DatosMascota = props =>{
                         onValueChange={(itemValue, itemIndex) =>
                             setCurrentSexo(itemValue)
                         }>
-                        <Picker.Item label="Macho" value="Macho" />
-                        <Picker.Item label="Hembra" value="Hembra" />
+                        <Picker.Item label="Macho" value="M" />
+                        <Picker.Item label="Hembra" value="H" />
             </Picker>
             <Text>Raza</Text>
             <Picker
@@ -44,19 +75,19 @@ const DatosMascota = props =>{
                         onValueChange={(itemValue, itemIndex) =>
                             setCurrentRaza(itemValue)
                         }>
-                        <Picker.Item label="French" value="French" />
-                        <Picker.Item label="Chihuahua" value="Chihuahua" />
+                        <Picker.Item label="French" value={[1]} />
+                        <Picker.Item label="Chihuahua" value={[2]} />
             </Picker>
             <Text>Altura</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentAltura(nombre)} />
             <Text>Peso</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentPeso(nombre)} />
             <Text>Edad</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentEdad(nombre)} />
             <Text>Detalles</Text>
-            <TextInput />
+            <TextInput onChangeText={(nombre) => setCurrentDetalle(nombre)} />
             
-            <Button title="Aceptar" onPress={props.gback}/>
+            <Button title="Aceptar" onPress={func}/>
   
       </ScrollView>
   );}

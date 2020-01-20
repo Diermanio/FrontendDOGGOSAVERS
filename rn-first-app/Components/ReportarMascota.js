@@ -8,7 +8,10 @@ import Datos from "./DatosReporte";
 
     static navigationOptions = { headerShown: false, title: 'Welcome', }
     
+    
+
     render() {
+      
         const reg = () => this.props.navigation.navigate('Reg');
         const back=() => this.props.navigation.goBack();
       return (
