@@ -12,7 +12,7 @@ const FotoMasccota = props =>{
       peso:props.peso,
       altura:props.altura,
       edad:props.edad,
-      dueño:"jeje",
+      dueño:props.id,
       detalle:props.detalle,
     });
 

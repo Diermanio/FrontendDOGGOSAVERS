@@ -17,7 +17,7 @@ import {macota} from "../Global/global";
         <View style={styles.parent}>
             <Banner titulo="Mascotas Perdidas/Encontradas" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
             <Pref />
-            <Lista nexts={infom} nav={this.props.navigation} />
+            <Lista nexts={infom} nav={this.props.navigation} arg="?tipo=P/E" />
         </View>
       );
     }

@@ -25,7 +25,7 @@ const DatosReporte = props =>{
           }),
         }).catch( error => {
             console.error(error);
-          });;
+          });props.gback();
     };
 
     return (

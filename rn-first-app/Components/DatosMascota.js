@@ -36,7 +36,7 @@ const DatosMascota = props =>{
           }),
         }).catch( error => {
             console.error(error);
-          });;
+          }); props.gback();
     };
 
     return (

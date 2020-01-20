@@ -7,11 +7,11 @@ import { getMascotasPE } from "../Fetchs/MascotasPerdidas";
 
 
 const ListaMascotas = props =>{
-    const [mascotas, setMascotas] = useState([{"id":1,"nombre":"jaja","img":"../assets/perro.jpg"},{"id":2,"nombre":"jeje","img":"../assets/perro.jpg"},{"id":3,"nombre":"juju","img":"../assets/perro.jpg"}]);
+    
     const [mas, setMas] = useState([]);
-
+   const url = "http://10.0.2.2:8000/mascotas/mascotas/" + props.arg
     useEffect(()=>{
-            fetch("http://10.0.2.2:8000/mascotas/mascotas/")
+            fetch(url)
             .then((response) => response.json())
             .then((responseJson) => {
               return responseJson;
@@ -25,11 +25,11 @@ const ListaMascotas = props =>{
 
           } , []);
         
-    console.log(mas);
+    
     return (
         <ScrollView style={styles.contenedor}>
-            {mas.map(mascota=> <Foto key={mascota.peso} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
-            altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} nav={props.nav}/>)}
+            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
+            altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav}/>)}
         </ScrollView>
         
   );};
