@@ -6,7 +6,7 @@ import { getMascotasPE } from "../Fetchs/MascotasPerdidas";
 
 
 
-const ListaMascotas = props =>{
+const ListaPE = props =>{
   const [currentAnimal, setCurrentAnimal] = useState("");
   const [currentRaza, setCurrentRaza] = useState("");
   const [currentEdad, setCurrentEdad] = useState("");
@@ -32,7 +32,7 @@ const ListaMascotas = props =>{
 
 
     const func = ()=>{
-      const url2 = "http://10.0.2.2:8000/mascotas/mascotas/" + props.arg+ currentAnimal + currentEdad + currentRaza
+      const url2 = "http://10.0.2.2:8000/mascotas/mascotas/" + props.arg+ currentAnimal + currentEdad + currentRaza + currentPE
       fetch(url2)
             .then((response) => response.json())
             .then((responseJson) => {
@@ -92,6 +92,16 @@ const ListaMascotas = props =>{
               <Picker.Item label="Joven" value={"&edad=10"} />
               <Picker.Item label="Adulto" value={"&edad=2"} />
           </Picker>
+          <Text>Estado</Text>
+                <Picker
+                    selectedValue={currentPE}
+                    style={{height: 50, width: 400}}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setCurrentPe(itemValue)
+                    }>
+                    <Picker.Item label="Perdida" value={"&estado=Perdida"} />
+                    <Picker.Item label="Encontrada" value={"&estado=Encontrada"} />
+            </Picker>
           <Button title="Aceptar" onPress={func} />
           </Modal>
           </View>
@@ -110,4 +120,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ListaMascotas;
+export default ListaPE;

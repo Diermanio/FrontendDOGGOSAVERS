@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Picker } from 'react-native';
 
 import Banner from "./Banner";
 import Pref from "./Preferencias";
-import Lista from "./ListaMascotas";
+import Lista from "./ListaPE";
 import {macota} from "../Global/global";
   class PerrosEP extends React.Component {
 
@@ -16,7 +16,6 @@ import {macota} from "../Global/global";
       return (
         <View style={styles.parent}>
             <Banner titulo="Mascotas Perdidas/Encontradas" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
-            <Pref />
             <Lista nexts={infom} nav={this.props.navigation} arg="?tipo=P/E" />
         </View>
       );
