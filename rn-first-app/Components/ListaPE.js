@@ -10,11 +10,11 @@ const ListaPE = props =>{
   const [currentAnimal, setCurrentAnimal] = useState("");
   const [currentRaza, setCurrentRaza] = useState("");
   const [currentEdad, setCurrentEdad] = useState("");
-  const [currentPE, setCurrentPe] = useState("");
+  const [currentPE, setCurrentPe] = useState("&estado=PE");
 
   const [isAddMode, setAddMode] = useState(false);
     const [mas, setMas] = useState([]);
-   const url = "http://10.0.2.2:8000/mascotas/mascotas/" + props.arg 
+   const url = "http://10.0.2.2:8000/mascotas/mascotas/" + props.arg + currentPE
     useEffect(()=>{
             fetch(url)
             .then((response) => response.json())
@@ -107,7 +107,7 @@ const ListaPE = props =>{
           </View>
   </View>
         <ScrollView style={styles.contenedor}>
-            {mas.map(mascota=> <Fot key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
+            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
             altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav}/>)}
         </ScrollView>
         </View>
