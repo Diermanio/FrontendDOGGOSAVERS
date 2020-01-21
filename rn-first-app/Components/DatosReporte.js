@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Picker, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Picker, TextInput, Button, ShadowPropTypesIOS } from 'react-native';
 
 import MenuOpcion from "./MenuOpcion";
 
@@ -8,8 +8,36 @@ const DatosReporte = props =>{
     const [currentDetalle, setCurrentDetalle] = useState("");
     const [currentDireccion, setCurrentDireccion] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
-    
+    const [mas, setMas] = useState([]);
+    const list=[];
+    list[0]=props.raza;
+    console.log(list);
     const func= () =>{ 
+      
+
+      fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            tipo_mascota: props.tipo,
+            nombre: props.nombre,
+            sexo: props.sexo,
+            altura: props.altura,
+            peso: props.peso,
+            edad_aproximada: props.edad,
+            imagen: "http://asdad.jpg",
+            detalles: props.detalle,
+            razas: list,
+            
+          }),
+        }).catch( error => {
+            console.error(error);
+          }); 
+/*
+
         fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
           method: 'POST',
           headers: {
@@ -17,22 +45,24 @@ const DatosReporte = props =>{
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_mascota:2,
-            id_user:1,
-            estado_mascota: currentPE,
-            sector_encuentro_perdida: currentDireccion,
-            detalle:currentDetalle,
+            id_macota: "1",
+            id_user: "1",
+            estado_mascota:"EN",
+            sector_encuentro_perdida: "SAMANES",
+            detalle:"JEJE",
+            
           }),
         }).catch( error => {
-            console.error(error);
-          });props.gback();
+            console.log(error);
+          }); */
+
+
     };
 
     return (
         <View style={styles.parent}>
             <View style={styles.fila}>
                 <Text>Mascota</Text>
-                <Button title="+" onPress={props.regis}/>
             </View>
             <Image style={styles.imag}  resizeMode="contain" source={require("../assets/default.png")}/>
             <Text>Estado</Text>

@@ -9,11 +9,11 @@ import Datos from "./DatosMascota";
     static navigationOptions = { headerShown: false, title: 'Welcome', }
     
     render() {
-        const back=() => this.props.navigation.goBack();
+        const back=() => this.props.navigation;
       return (
         <View style={styles.parent}>
           <Banner titulo="Registrar Mascota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
-          <Datos gback={back} />
+          <Datos gback={this.props.navigation} />
           
     
         </View>

@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Image, Picker, TextInput, Button, ScrollView } 
 import MenuOpcion from "./MenuOpcion";
 
 const DatosMascota = props =>{
-    const [currentTipo, setCurrentTipo] = useState("");
-    const [currentSexo, setCurrentSexo] = useState("");
+    const [currentTipo, setCurrentTipo] = useState("GA");
+    const [currentSexo, setCurrentSexo] = useState("M");
     const [currentRaza, setCurrentRaza] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
 
@@ -15,29 +15,34 @@ const DatosMascota = props =>{
     const [currentEdad, setCurrentEdad] = useState("");
     const [currentPeso, setCurrentPeso] = useState("");
 
-    const func= () =>{ 
-        fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            tipo_mascota: currentTipo,
-            nombre: currentNombre,
-            sexo: currentSexo,
-            altura: currentAltura,
-            peso: currentPeso,
-            edad_aproximada: currentEdad,
-            imagen: "http://asdad.jpg",
-            detalles: currentDetalle,
-            razas: currentRaza
-            
-          }),
-        }).catch( error => {
-            console.error(error);
-          }); props.gback();
-    };
+    const[currentLRaza,setCurrentLRaza]= useState([]);
+
+    useEffect(()=>{
+        fetch("http://10.0.2.2:8000/mascotas/raza")
+        .then((response) => response.json())
+        .then((responseJson) => {
+          return responseJson;
+        })
+        .then( masco  => {
+          setCurrentLRaza(masco);
+        })
+        .catch( error => {
+          console.error(error);
+        });
+
+      } , []);
+
+    const func2= ()=>{props.gback.navigate('Rep',{
+        tipo_mascota: currentTipo,
+        nombre: currentNombre,
+        sexo: currentSexo,
+        altura: currentAltura,
+        peso: currentPeso,
+        edad_aproximada: currentEdad,
+        imagen: "http://asdad.jpg",
+        detalles: currentDetalle,
+        razas: currentRaza,
+      });};
 
     return (
         <ScrollView style={styles.parent}>
@@ -75,8 +80,8 @@ const DatosMascota = props =>{
                         onValueChange={(itemValue, itemIndex) =>
                             setCurrentRaza(itemValue)
                         }>
-                        <Picker.Item label="French" value={[1]} />
-                        <Picker.Item label="Chihuahua" value={[2]} />
+                        {currentLRaza.map(raz => <Picker.Item Key={raz.id} label={raz.raza} value={raz.id} />)}
+                        
             </Picker>
             <Text>Altura</Text>
             <TextInput onChangeText={(nombre) => setCurrentAltura(nombre)} />
@@ -87,7 +92,7 @@ const DatosMascota = props =>{
             <Text>Detalles</Text>
             <TextInput onChangeText={(nombre) => setCurrentDetalle(nombre)} />
             
-            <Button title="Aceptar" onPress={func}/>
+            <Button title="Aceptar" onPress={ func2}/>
   
       </ScrollView>
   );}
