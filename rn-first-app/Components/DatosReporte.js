@@ -12,10 +12,10 @@ const DatosReporte = props =>{
     const list=[];
     list[0]=props.raza;
     console.log(list);
-    const func= () =>{ 
+    const func= async() =>{ 
       
 
-      fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
+     await fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -36,17 +36,50 @@ const DatosReporte = props =>{
         }).catch( error => {
             console.error(error);
           }); 
-/*
 
-        fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
+        /*  fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_macota: "1",
-            id_user: "1",
+            id_mascota: 1,
+            id_user: 1,
+            puntaje_juego:"23"
+          }),
+        }).catch( error => {
+            console.log(error);
+          });*/
+
+
+        const url= "http://10.0.2.2:8000/mascotas/mascotas/?tipo=ID&tipo_mascota="+props.tipo+"&nombre="+props.nombre+"&sexo="+props.sexo+"&altura="+props.altura+"&peso="+props.peso+"&edad="+props.edad+"&detalles="+props.detalle
+
+      await  fetch(url)
+          .then((response) => response.json())
+          .then((responseJson) => {
+            return responseJson;
+          })
+          .then( masco  => {
+            setMas(masco);
+            console.log(mas)
+          })
+          .catch( error => {
+            console.error(error);
+          });
+
+          
+
+
+      await  fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id_mascota: mas.id,
+            id_user: 1,
             estado_mascota:"EN",
             sector_encuentro_perdida: "SAMANES",
             detalle:"JEJE",
@@ -54,10 +87,11 @@ const DatosReporte = props =>{
           }),
         }).catch( error => {
             console.log(error);
-          }); */
+          }); 
 
 
     };
+      
 
     return (
         <View style={styles.parent}>
