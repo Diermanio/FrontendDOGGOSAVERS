@@ -6,7 +6,21 @@ import {macota} from "../Global/global";
 
 
 const FotoMasccota = props =>{
-    const func=()=> props.nav.navigate('InfoM',{
+
+
+    const func2=()=>props.nav.navigate('InfoMus',{
+      nombre:props.nombre,
+      raza:props.raza,
+      peso:props.peso,
+      altura:props.altura,
+      edad:props.edad,
+      dueño:props.id,
+      detalle:props.detalle,
+      tipob: props.tipob,
+      
+    });
+
+    const func1=()=> props.nav.navigate('InfoM',{
       nombre:props.nombre,
       raza:props.raza,
       peso:props.peso,
@@ -17,8 +31,19 @@ const FotoMasccota = props =>{
       tipob: props.tipob,
     });
 
+    const ver=() =>{
+      if(props.num!=1){
+        console.log("no manqueaste vida")
+        func1();
+      }else{
+        console.log("numn")
+        console.log(props.num)
+        func2();
+      }
+    }
+
     return (
-      <TouchableHighlight onPress={func}>
+      <TouchableHighlight onPress={ver}>
         <View style={styles.fondo2}>
             <Image style={styles.image}  resizeMode="contain" source={require("../assets/perro.jpg")}/>
             <Text  style={styles.text}>{props.nombre}</Text>

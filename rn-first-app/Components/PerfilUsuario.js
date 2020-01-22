@@ -16,6 +16,8 @@ class PerfilUsuario extends React.Component {
             this.props.navigation.popToTop();
         }
 
+        const mascotasus = () => this.props.navigation.navigate('MUs');
+
         return (
             <ScrollView style={styles.parent}>
                 <BannerPerfil titulo="Perfil" ImagenIzq={require('../assets/peth.png')} />
@@ -38,7 +40,7 @@ class PerfilUsuario extends React.Component {
                     <Text> @brendanfor</Text>
                 </View>
                 <Button title="Poner mascota en adopción" onPress={registrar}/>
-                <Button title="Lista de mascotas en adopción"/>
+                <Button title="Lista de mascotas en adopción " onPress={mascotasus}/>
                 <Button title="Cerrar Sesion" onPress={logOut}/>
             </ScrollView>
         );

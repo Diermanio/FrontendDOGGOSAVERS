@@ -106,6 +106,7 @@ const DatosMascota = props =>{
               await fadop1();
               const id=await fadop2();
               await fadop3(id);
+              props.gback.popToTop();
                 console.log("Proceso de adopcion")
             }  
         

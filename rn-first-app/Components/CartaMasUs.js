@@ -3,27 +3,10 @@ import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView } from 
 
 
 
-const CartaMascota = props =>{
+const CartaMasUs = props =>{
     
     const [mas, setMas] = useState([]);
-    const url = "http://10.0.2.2:8000/usuarios/usuario/?tipo="+ props.tipo+"&mascota=" + props.dueño
-
-
     
-     useEffect(()=>{
-             fetch(url)
-             .then((response) => response.json())
-             .then((responseJson) => {
-               return responseJson;
-             })
-             .then( masco  => {
-               setMas(masco);
-             })
-             .catch( error => {
-               console.error(error);
-             });
- 
-           } , []);
 
     console.log(mas);
     return (
@@ -57,7 +40,7 @@ const CartaMascota = props =>{
             <View style={styles.fila}>
                <View style={styles.bloque}>
                     <Text>Dueño</Text>
-                    {mas.map(user=> <Text Key={user.id} style={styles.caja}>{user.username}</Text>)}
+                     <Text style={styles.caja}>{global.datos[0].username}</Text>
                 </View>
             </View>
             </View>
@@ -102,4 +85,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default CartaMascota;
+export default CartaMasUs;

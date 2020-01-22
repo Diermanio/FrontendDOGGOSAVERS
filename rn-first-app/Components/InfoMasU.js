@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, Image, Picker, ScrollView } from 'react-native'
 
 
 import Banner from "./Banner";
-import Datos from "./CartaMascota";
+import Datos from "./CartaMasUs";
 
-  class PerrosEP extends React.Component {
+  class InfoMasU extends React.Component {
 
     static navigationOptions = { headerShown: false };
     
@@ -64,4 +64,4 @@ import Datos from "./CartaMascota";
     
   });
 
-export default PerrosEP;
+export default InfoMasU;
