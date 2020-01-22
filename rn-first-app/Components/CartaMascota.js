@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView } from 
 const CartaMascota = props =>{
     
     const [mas, setMas] = useState([]);
-    const url = "http://10.0.2.2:8000/usuarios/usuario/?mascota=" + props.dueño
+    const url = "http://10.0.2.2:8000/usuarios/usuario/?tipo="+ props.tipo+"&mascota=" + props.dueño
      useEffect(()=>{
              fetch(url)
              .then((response) => response.json())

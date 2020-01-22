@@ -14,6 +14,7 @@ const FotoMasccota = props =>{
       edad:props.edad,
       dueño:props.id,
       detalle:props.detalle,
+      tipob: props.tipob,
     });
 
     return (

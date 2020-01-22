@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Image, Picker, TextInput, Button, ScrollView } 
 import MenuOpcion from "./MenuOpcion";
 
 const DatosMascota = props =>{
-    const [currentTipo, setCurrentTipo] = useState("GA");
-    const [currentSexo, setCurrentSexo] = useState("M");
+    const [currentTipo, setCurrentTipo] = useState("");
+    const [currentSexo, setCurrentSexo] = useState("");
     const [currentRaza, setCurrentRaza] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
 

@@ -20,7 +20,7 @@ import Datos from "./CartaMascota";
             <View  style={styles.bloque3}>
                 <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
             </View>
-            <Datos detalle={params.detalle} raza={params.raza} peso={params.peso} altura={params.altura} edad={params.edad} dueño={params.dueño} />
+            <Datos detalle={params.detalle} raza={params.raza} peso={params.peso} altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob} />
         </ScrollView>
       );
     }

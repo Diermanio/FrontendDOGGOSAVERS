@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, Picker, TextInput, Button, ShadowPropTypesIOS } from 'react-native';
 
 import MenuOpcion from "./MenuOpcion";
 
 const DatosReporte = props =>{
-    const [currentPE, setCurrentPe] = useState("");
+    const [currentPE, setCurrentPe] = useState("PE");
     const [currentDetalle, setCurrentDetalle] = useState("");
     const [currentDireccion, setCurrentDireccion] = useState("");
     const [currentImage, setCurrentImage] = useState("../assets/default.png");
-    const [mas, setMas] = useState([]);
+    const [mas, setMas] = useState(3);
     const list=[];
     list[0]=props.raza;
-    console.log(list);
-    const func= async() =>{ 
-      
+    const url= "http://10.0.2.2:8000/mascotas/mascotas/?tipo=ID&tipo_mascota="+props.tipo+"&nombre="+props.nombre+"&sexo="+props.sexo+"&altura="+props.altura+"&peso="+props.peso+"&edad="+props.edad+"&detalles="+props.detalle
 
-     await fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
+    const f1= async () => await fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -37,7 +35,44 @@ const DatosReporte = props =>{
             console.error(error);
           }); 
 
-        /*  fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
+    const f2= async () => await fetch(url)
+            .then((response) => response.json())
+            .then((responseJson) => {
+              return responseJson;
+            })
+            .then( masco  => {
+              console.log("la id");
+              console.log(masco[0].id);
+              return masco[0].id;
+            })
+            .catch( error => {
+              console.error(error);
+            })
+
+    const f3= async (id) => await  fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              id_mascota: id,
+              id_user: 1,
+              estado_mascota:currentPE,
+              sector_encuentro_perdida: currentDireccion,
+              detalle:currentDetalle,
+              
+            }),
+          }).catch( error => {
+              console.log(error);
+            }); 
+
+
+    const func= async() =>{ 
+      
+         await f1();
+    
+     /*    fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -52,43 +87,10 @@ const DatosReporte = props =>{
             console.log(error);
           });*/
 
-
-        const url= "http://10.0.2.2:8000/mascotas/mascotas/?tipo=ID&tipo_mascota="+props.tipo+"&nombre="+props.nombre+"&sexo="+props.sexo+"&altura="+props.altura+"&peso="+props.peso+"&edad="+props.edad+"&detalles="+props.detalle
-
-      await  fetch(url)
-          .then((response) => response.json())
-          .then((responseJson) => {
-            return responseJson;
-          })
-          .then( masco  => {
-            setMas(masco);
-            console.log(mas)
-          })
-          .catch( error => {
-            console.error(error);
-          });
-
-          
-
-
-      await  fetch('http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            id_mascota: mas.id,
-            id_user: 1,
-            estado_mascota:"EN",
-            sector_encuentro_perdida: "SAMANES",
-            detalle:"JEJE",
-            
-          }),
-        }).catch( error => {
-            console.log(error);
-          }); 
-
+         const id=await f2();
+      
+         
+         await f3(id);
 
     };
       

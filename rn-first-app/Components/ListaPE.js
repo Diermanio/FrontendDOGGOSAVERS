@@ -108,7 +108,7 @@ const ListaPE = props =>{
   </View>
         <ScrollView style={styles.contenedor}>
             {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
-            altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav}/>)}
+            altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav} tipob="P/E"/>)}
         </ScrollView>
         </View>
   );};
