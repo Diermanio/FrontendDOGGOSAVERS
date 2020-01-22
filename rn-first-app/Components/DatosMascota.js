@@ -16,7 +16,7 @@ const DatosMascota = props =>{
     const [currentPeso, setCurrentPeso] = useState("");
 
     const[currentLRaza,setCurrentLRaza]= useState([]);
-
+    const lop=props.key;
     useEffect(()=>{
         fetch("http://10.0.2.2:8000/mascotas/raza")
         .then((response) => response.json())
@@ -42,6 +42,7 @@ const DatosMascota = props =>{
         imagen: "http://asdad.jpg",
         detalles: currentDetalle,
         razas: currentRaza,
+        key: props.rkey,
       });};
 
     return (

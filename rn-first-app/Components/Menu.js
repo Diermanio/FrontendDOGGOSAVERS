@@ -15,7 +15,9 @@ import { createStackNavigator } from 'react-navigation-stack';
     render() {
       const macotasp_e = () => this.props.navigation.navigate('PerrosP_E');
       const adoptar = () => this.props.navigation.navigate('Adop');
-      const reportar = () => this.props.navigation.navigate('Reg');
+      const reportar = () => this.props.navigation.navigate('Reg',{
+        key:this.props.navigation.state.key,
+      });
       const perfil=() => this.props.navigation.navigate('Perfil');
       const mascotagame=() => this.props.navigation.navigate('Game');
       return (

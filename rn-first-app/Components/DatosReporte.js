@@ -72,7 +72,7 @@ const DatosReporte = props =>{
       
          await f1();
     
-     /*    fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
+         /*fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -91,6 +91,7 @@ const DatosReporte = props =>{
       
          
          await f3(id);
+         props.gback();
 
     };
       

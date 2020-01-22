@@ -11,13 +11,13 @@ import Datos from "./DatosReporte";
 
     render() {
        const { params } = this.props.navigation.state;
-
-        const back=() => this.props.navigation.goBack();
+      console.log(params.key)
+        const back=() => this.props.navigation.popToTop();
       return (
         <View style={styles.parent}>
           <Banner titulo="Reportar Mascota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
           <Datos gback={back} tipo={params.tipo_mascota} nombre={params.nombre} sexo={params.sexo} altura={params.altura}
-           peso={params.peso}  edad={params.edad_aproximada} imagen={params.imagen} detalle={params.detalles} raza={params.razas} />
+           peso={params.peso}  edad={params.edad_aproximada} imagen={params.imagen} detalle={params.detalles} raza={params.razas} rkey={params.key} />
           
     
         </View>
