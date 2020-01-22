@@ -52,7 +52,7 @@ const ListaMascotas = props =>{
     }
 
     return (
-      <View>
+      <View style={styles.parent}>
       <View>
       <View style={styles.pref}>
           <Button title="Preferencias" onPress={()=> setAddMode(true)} />
@@ -106,7 +106,8 @@ const ListaMascotas = props =>{
 
 
 const styles = StyleSheet.create({
-  pref:{
+  parent:{
+    flex:1,
   }
 });
 

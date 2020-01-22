@@ -11,7 +11,7 @@ import { createStackNavigator } from 'react-navigation-stack';
   class Menu extends React.Component {
 
     static navigationOptions = { headerShown: false, title: 'Welcome', }
-
+    
     render() {
       const macotasp_e = () => this.props.navigation.navigate('PerrosP_E');
       const adoptar = () => this.props.navigation.navigate('Adop');
@@ -20,9 +20,20 @@ import { createStackNavigator } from 'react-navigation-stack';
       });
       const perfil=() => this.props.navigation.navigate('Perfil');
       const mascotagame=() => this.props.navigation.navigate('Game');
+
+      const log=() =>{
+
+        if(global.datos.length!=0){
+          this.props.navigation.navigate('Perfil');
+        }else{
+          this.props.navigation.navigate('LogIn');
+        }
+
+      }
+
       return (
         <View style={styles.container}>
-          <Banner titulo="Bienvenido a DOGGOSAVERS" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} per={perfil} />
+          <Banner titulo="Bienvenido a DOGGOSAVERS" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} per={log} />
         
           <View  >
             <Image  style={styles.image} resizeMode="contain" source={require('../assets/peth.png')}/>

@@ -57,7 +57,7 @@ const DatosReporte = props =>{
             },
             body: JSON.stringify({
               id_mascota: id,
-              id_user: 1,
+              id_user: global.datos[0].id,
               estado_mascota:currentPE,
               sector_encuentro_perdida: currentDireccion,
               detalle:currentDetalle,

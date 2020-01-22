@@ -9,7 +9,6 @@ import Datos from "./DatosMascota";
     static navigationOptions = { headerShown: false, title: 'Welcome', }
     
     render() {
-      
       const { params } = this.props.navigation.state;
       console.log(params.key)
         const back=() => this.props.navigation;

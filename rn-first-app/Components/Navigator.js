@@ -11,7 +11,7 @@ import Reportar from "./ReportarMascota";
 import Registrar from "./RegistrarMasccota";
 import Perfil from "./PerfilUsuario";
 import Game from "./JuegoMascota";
-
+import Log from "./LogIn";
 const AppNavigator = createStackNavigator(
     {
         Home: { screen: Menu},
@@ -22,6 +22,7 @@ const AppNavigator = createStackNavigator(
         Reg: { screen: Registrar},
         Perfil: { screen: Perfil},
         Game: { screen: Game},
+        LogIn: { screen: Log},
     },
     {
         initialRouteName: 'Home',
