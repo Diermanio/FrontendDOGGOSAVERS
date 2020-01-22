@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Button, View, Text, Image } from 'react-native';
+import { StyleSheet, Button, View, Text, Image, ScrollView } from 'react-native';
 import BannerPerfil from "./BannerPerfil";
 
 class PerfilUsuario extends React.Component {
@@ -7,9 +7,17 @@ class PerfilUsuario extends React.Component {
 
     render() {
         //const infom = () => this.props.navigation.navigate('InfoM');
+        const registrar = () => this.props.navigation.navigate('Reg',{
+            key:this.props.navigation.state.key,
+            tipoP: "Adopcion"
+          });
+        const logOut=() =>{
+            global.datos.pop();
+            this.props.navigation.popToTop();
+        }
 
         return (
-            <View style={styles.parent}>
+            <ScrollView style={styles.parent}>
                 <BannerPerfil titulo="Perfil" ImagenIzq={require('../assets/peth.png')} />
                 <View>
                     <Image style={styles.image} resizeMode="contain" source={require('../assets/user.jpg')} />
@@ -29,7 +37,10 @@ class PerfilUsuario extends React.Component {
                     <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/socialI.png')}></Image>
                     <Text> @brendanfor</Text>
                 </View>
-            </View>
+                <Button title="Poner mascota en adopción" onPress={registrar}/>
+                <Button title="Lista de mascotas en adopción"/>
+                <Button title="Cerrar Sesion" onPress={logOut}/>
+            </ScrollView>
         );
     }
 }

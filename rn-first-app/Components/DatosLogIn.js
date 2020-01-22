@@ -10,7 +10,7 @@ const Banner = props =>{
     const [currentUser, setCurrentUser] = useState("");
     const [currentPass, setCurrentPass] = useState("");
 
-    
+        
 
     const f2= async () => await fetch("http://10.0.2.2:8000/usuarios/usuario/?tipo=LOG&user="+ currentUser+"&pass="+ currentPass+"")
             .then((response) => response.json())

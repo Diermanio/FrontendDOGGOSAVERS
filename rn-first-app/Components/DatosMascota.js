@@ -17,6 +17,10 @@ const DatosMascota = props =>{
 
     const[currentLRaza,setCurrentLRaza]= useState([]);
     const lop=props.key;
+    const list=[];
+    list[0]=currentRaza;
+
+    const url= "http://10.0.2.2:8000/mascotas/mascotas/?tipo=ID&tipo_mascota="+currentTipo+"&nombre="+currentNombre+"&sexo="+currentSexo+"&altura="+currentAltura+"&peso="+currentPeso+"&edad="+currentEdad+"&detalles="+ currentDetalle
     useEffect(()=>{
         fetch("http://10.0.2.2:8000/mascotas/raza")
         .then((response) => response.json())
@@ -44,6 +48,76 @@ const DatosMascota = props =>{
         razas: currentRaza,
         key: props.rkey,
       });};
+
+
+
+    const fadop1= async () => await fetch('http://10.0.2.2:8000/mascotas/mascotas/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            tipo_mascota: currentTipo,
+            nombre: currentNombre,
+            sexo: currentSexo,
+            altura: currentAltura,
+            peso: currentPeso,
+            edad_aproximada: currentEdad,
+            imagen: "http://asdad.jpg",
+            detalles: currentDetalle,
+            razas: list,
+            
+          }),
+        }).catch( error => {
+            console.error(error);
+          }); 
+
+    const fadop2= async () => await fetch(url)
+            .then((response) => response.json())
+            .then((responseJson) => {
+              return responseJson;
+            })
+            .then( masco  => {
+              console.log("la id");
+              console.log(masco[0].id);
+              return masco[0].id;
+            })
+            .catch( error => {
+              console.error(error);
+            })
+
+    const fadop3 = async (id) => await  fetch('http://10.0.2.2:8000/mascotas/mascotasadopcion/', {
+                  method: 'POST',
+                  headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    id_mascota: id,
+                    id_user: global.datos[0].id,
+                    puntaje_juego:"23"
+                  }),
+                }).catch( error => {
+                    console.log(error);
+                  }); 
+
+     const func3= async () =>{
+              await fadop1();
+              const id=await fadop2();
+              await fadop3(id);
+                console.log("Proceso de adopcion")
+            }  
+        
+      const ver=()=>{
+        
+              if(props.tipoP=="Reportar"){
+                  func2();
+              }else{
+                func3();
+              }
+        
+            };
 
     return (
         <ScrollView style={styles.parent}>
@@ -93,7 +167,7 @@ const DatosMascota = props =>{
             <Text>Detalles</Text>
             <TextInput onChangeText={(nombre) => setCurrentDetalle(nombre)} />
             
-            <Button title="Aceptar" onPress={ func2}/>
+            <Button title="Aceptar" onPress={ ver}/>
   
       </ScrollView>
   );}
