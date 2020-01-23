@@ -23,13 +23,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: 'space-evenly',
     backgroundColor: 'red',
+    marginRight:10,
+    marginLeft: 10,
+    borderRadius: 20,
+    marginTop: 5,
+    marginBottom: 5,
+
   },
   title:{
     paddingTop:13,
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 36,
+    height: 36,
     margin:5,
   }
 });

@@ -43,7 +43,11 @@ const styles = StyleSheet.create({
     padding:3,
     backgroundColor: 'white',
     borderWidth:2,
-  }
+  },
+    text:{
+    textAlign: "center",
+    // fontFamily: "Montserrat-Regular",
+}
 });
 
 export default Banner;

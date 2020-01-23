@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 import Banner from "./Banner";
 import MenuOpciones from "./MenuOpciones";
 import MenuTitulo from "./MenuTitulo";
+import * as Font from 'expo-font';
+import {AppLoading} from 'expo';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
 
 
   class Menu extends React.Component {
@@ -31,6 +34,24 @@ import { createStackNavigator } from 'react-navigation-stack';
         }
 
       }
+      const fetchFonts = () => {
+        return Font.loadAsync({
+        'Montserrat-Regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
+        
+        });
+        };
+
+      
+        // const[dataLoaded, setDataLoaded]= useState(false);
+        // if(!dataLoaded){
+        //   return(
+        //     <AppLoading
+        //       startAsync={fetchFonts}
+        //       onFinish={() => setDataLoaded(true)}/>
+        //   );
+        // }
+
+        
 
       return (
         <View style={styles.container}>
@@ -65,8 +86,11 @@ import { createStackNavigator } from 'react-navigation-stack';
     image:{
       height: 175,
       width:400,
-    }
-    
+    },
+    text:{
+      textAlign: "center",
+      fontFamily: "Montserrat-Regular",
+  }
   });
 
 export default Menu;
