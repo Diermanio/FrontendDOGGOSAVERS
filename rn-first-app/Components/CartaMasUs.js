@@ -6,11 +6,39 @@ import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView } from 
 const CartaMasUs = props =>{
     
     const [mas, setMas] = useState([]);
-    
+    const [masADOP, setMasADOP] = useState([]);
+    const [masNOADOP, setMasNOADOP] = useState([]);
     const func = ()=> props.nav.navigate("MA",{
       idMascota: props.idM,
     });
 
+
+   const f2= async () => await fetch("http://10.0.2.2:8000/mascotas/mascota_adoptada/?idMascota="+props.idM)
+            .then((response) => response.json())
+            .then((responseJson) => {
+              return responseJson;
+            })
+            .then( masco  => {
+              return masco;
+            })
+            .catch( error => {
+              console.error(error);
+            })
+
+    const ver = async()=>{
+      
+       const masco= await f2();
+       console.log(masco)
+       if(masco.length==0){
+         console.log("la mascota no esta adoptada")
+         setMasNOADOP([1])
+       }else{
+          console.log("la mascota esta adoptada")
+          setMasADOP([1])
+       }
+
+    };
+    ver();
     console.log(mas);
     return (
         <View>
@@ -47,10 +75,15 @@ const CartaMasUs = props =>{
                 </View>
             </View>
             <View style={styles.fila}>
-               <View style={styles.bloque}>
+             
+             {masNOADOP.map(masc => <View style={styles.bloque}>
                    <Button title="Mascota Adoptada" onPress={func}/>
-                </View>
+             </View>)}
+             {masADOP.map(masc => <View style={styles.bloque}>
+                   <Text>La mascota ya fue adoptada</Text>
+             </View>)}
             </View>
+            
             </View>
   );};
 
