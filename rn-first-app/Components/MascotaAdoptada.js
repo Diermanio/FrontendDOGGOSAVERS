@@ -12,12 +12,12 @@ import Datos from "./InfoAdoptada";
     
     render() {
       const { params } = this.props.navigation.state;
-      
+      const nav= this.props.navigation;
 
       return (
         <ScrollView style={styles.parent}>
             <Banner titulo={"Mascota Adoptada"} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
-            <Datos  idMascota={params.idMascota}/>
+            <Datos  idMascota={params.idMascota} nav={nav}/>
         </ScrollView>
       );
     }

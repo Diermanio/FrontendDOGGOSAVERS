@@ -51,9 +51,10 @@ const Banner = props =>{
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.loginScreenContainer}>
           <View style={styles.loginFormView}>
+
           <Text style={styles.logoText}>DOGGO SAVERS</Text>
-            <TextInput placeholder="Username" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} />
-            <TextInput placeholder="Password" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} secureTextEntry={true}/>
+            <TextInput placeholder="Username" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} onChangeText={(nombre) => setCurrentUser(nombre)} />
+            <TextInput placeholder="Password" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} onChangeText={(nombre) => setCurrentPass(nombre)} secureTextEntry={true}/>
             <Button
               buttonStyle={styles.loginButton}
               onPress={ver}
