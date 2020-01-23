@@ -14,6 +14,7 @@ import Game from "./JuegoMascota";
 import Log from "./LogIn";
 import MasUs from "./MascotasUs";
 import InfoMasUs from "./InfoMasU";
+import PerfilUsMas from "./PerfilUsMas"
 const AppNavigator = createStackNavigator(
     {
         Home: { screen: Menu},
@@ -27,6 +28,7 @@ const AppNavigator = createStackNavigator(
         LogIn: { screen: Log},
         MUs: { screen: MasUs},
         InfoMus: { screen: InfoMasUs},
+        PUM: { screen: PerfilUsMas},
     },
     {
         initialRouteName: 'Home',

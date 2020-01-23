@@ -12,7 +12,7 @@ import Datos from "./CartaMascota";
     
     render() {
       const { params } = this.props.navigation.state;
-      
+      const nav= this.props.navigation;
 
       return (
         <ScrollView style={styles.parent}>
@@ -20,7 +20,7 @@ import Datos from "./CartaMascota";
             <View  style={styles.bloque3}>
                 <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
             </View>
-            <Datos detalle={params.detalle} raza={params.raza} peso={params.peso} altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob}  />
+            <Datos detalle={params.detalle} raza={params.raza} peso={params.peso} altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob} nav={nav}/>
         </ScrollView>
       );
     }

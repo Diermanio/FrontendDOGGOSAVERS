@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView, TouchableHighlight } from 'react-native';
 
 
 
@@ -8,8 +8,6 @@ const CartaMascota = props =>{
     const [mas, setMas] = useState([]);
     const url = "http://10.0.2.2:8000/usuarios/usuario/?tipo="+ props.tipo+"&mascota=" + props.dueño
 
-
-    
      useEffect(()=>{
              fetch(url)
              .then((response) => response.json())
@@ -24,6 +22,12 @@ const CartaMascota = props =>{
              });
  
            } , []);
+
+    const datosUs= ()=> props.nav.navigate('PUM',{
+            username:mas[0].username,
+            persona:mas[0].persona,
+          });
+           
 
     console.log(mas);
     return (
@@ -57,7 +61,7 @@ const CartaMascota = props =>{
             <View style={styles.fila}>
                <View style={styles.bloque}>
                     <Text>Dueño</Text>
-                    {mas.map(user=> <Text Key={user.id} style={styles.caja}>{user.username}</Text>)}
+                    {mas.map(user=>(<TouchableHighlight onPress={datosUs}><Text Key={user.id} style={styles.caja}>{user.username}</Text></TouchableHighlight>) )}
                 </View>
             </View>
             </View>
