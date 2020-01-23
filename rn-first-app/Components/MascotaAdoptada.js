@@ -3,25 +3,21 @@ import { StyleSheet, Text, View, Image, Picker, ScrollView } from 'react-native'
 
 
 import Banner from "./Banner";
-import Datos from "./CartaMasUs";
+import Datos from "./InfoAdoptada";
 
-  class InfoMasU extends React.Component {
+  class MascotaAdoptada extends React.Component {
 
     static navigationOptions = { headerShown: false };
     
     
     render() {
       const { params } = this.props.navigation.state;
-      const nav= this.props.navigation;
+      
 
       return (
         <ScrollView style={styles.parent}>
-            <Banner titulo={params.nombre} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
-            <View  style={styles.bloque3}>
-                <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
-            </View>
-            <Datos idM={params.id} detalle={params.detalle} raza={params.raza} peso={params.peso} 
-            altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob} nav={nav} />
+            <Banner titulo={"Mascota Adoptada"} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Datos  idMascota={params.idMascota}/>
         </ScrollView>
       );
     }
@@ -65,4 +61,4 @@ import Datos from "./CartaMasUs";
     
   });
 
-export default InfoMasU;
+export default MascotaAdoptada;

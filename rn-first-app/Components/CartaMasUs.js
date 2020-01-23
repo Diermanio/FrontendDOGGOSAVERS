@@ -7,6 +7,9 @@ const CartaMasUs = props =>{
     
     const [mas, setMas] = useState([]);
     
+    const func = ()=> props.nav.navigate("MA",{
+      idMascota: props.idM,
+    });
 
     console.log(mas);
     return (
@@ -41,6 +44,11 @@ const CartaMasUs = props =>{
                <View style={styles.bloque}>
                     <Text>Dueño</Text>
                      <Text style={styles.caja}>{global.datos[0].username}</Text>
+                </View>
+            </View>
+            <View style={styles.fila}>
+               <View style={styles.bloque}>
+                   <Button title="Mascota Adoptada" onPress={func}/>
                 </View>
             </View>
             </View>

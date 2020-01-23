@@ -15,6 +15,8 @@ import Log from "./LogIn";
 import MasUs from "./MascotasUs";
 import InfoMasUs from "./InfoMasU";
 import PerfilUsMas from "./PerfilUsMas"
+import MascotaAdoptada from './MascotaAdoptada';
+
 const AppNavigator = createStackNavigator(
     {
         Home: { screen: Menu},
@@ -29,6 +31,7 @@ const AppNavigator = createStackNavigator(
         MUs: { screen: MasUs},
         InfoMus: { screen: InfoMasUs},
         PUM: { screen: PerfilUsMas},
+        MA:{screen: MascotaAdoptada}
     },
     {
         initialRouteName: 'Home',
