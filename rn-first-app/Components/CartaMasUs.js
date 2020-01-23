@@ -75,7 +75,6 @@ const CartaMasUs = props =>{
                 </View>
             </View>
             <View style={styles.fila}>
-             
              {masNOADOP.map(masc => <View style={styles.bloque}>
                    <Button title="Mascota Adoptada" onPress={func}/>
              </View>)}

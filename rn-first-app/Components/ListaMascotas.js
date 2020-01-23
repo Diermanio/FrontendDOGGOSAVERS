@@ -89,8 +89,8 @@ const ListaMascotas = props =>{
                   setCurrentEdad(itemValue)
               }>
                 <Picker.Item label="Ninguna" value={"&edad=N"} />
-              <Picker.Item label="Joven" value={"&edad=10"} />
-              <Picker.Item label="Adulto" value={"&edad=2"} />
+              <Picker.Item label="Joven" value={"&edad=JOVEN"} />
+              <Picker.Item label="Adulto" value={"&edad=ADULTO"} />
           </Picker>
           <Button title="Aceptar" onPress={func} />
           </Modal>
