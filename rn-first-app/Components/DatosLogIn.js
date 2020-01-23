@@ -28,9 +28,12 @@ const Banner = props =>{
     const ver= async ()=>{
         const res= await f2();
         console.log(res);
-        global.datos[0]=res;
+        if(res!=null){
+          global.datos[0]=res;
+        }
         console.log("yaaa")
         console.log(global.datos);
+        
         props.gback();
     }
 
