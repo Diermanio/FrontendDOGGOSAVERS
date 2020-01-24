@@ -12,7 +12,7 @@ const CartaMasUs = props =>{
       idMascota: props.idM,
     });
 
-    const r={1:{raza:},}
+    
 
    const f2= async () => await fetch("http://10.0.2.2:8000/mascotas/mascota_adoptada/?idMascota="+props.idM)
             .then((response) => response.json())
