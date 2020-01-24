@@ -25,25 +25,24 @@ const DatosPerfil= props =>{
 
     return (
         
-        <View>
-            <View>
+        <View >
+               <View style={styles.contimage}>
                     <Image style={styles.image} resizeMode="contain" source={require('../assets/user.jpg')} />
                 </View>
-                <View>
-                <Text style={styles.texto}> {mas.nombre + " " +mas.apellidos} </Text>
+                <View style={styles.parent}>
+                    <View style={styles.container}>
+                    <Text style={styles.texto}> {mas.nombre + " " +mas.apellidos} </Text>
+                    </View>
+                    <View style={styles.container}>
+                        <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/what.png')} ></Image>
+                    <Text> {mas.numero_contacto}</Text>
+                    </View>
+                    <View style={styles.container}>
+                        <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/mail.png')}></Image>
+        <               Text> {mas.correo}</Text>
+                    </View>
                 </View>
-                <View style={styles.container}>
-                    <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/socialF.png')} ></Image>
-                    <Text> Brendan Moore Ferder</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/socialT.png')}></Image>
-                    <Text> @brendadn_moore</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image style={styles.imageContainer} resizeMode="contain" source={require('../assets/socialI.png')}></Image>
-                    <Text> @brendanfor</Text>
-                </View>
+                
             
         </View>
   );};
@@ -53,11 +52,16 @@ const DatosPerfil= props =>{
 const styles = StyleSheet.create({
     parent: {
         flex: 1,
+        justifyContent: "space-evenly",
+        backgroundColor: '#fff',
     },
     image: {
         width: 300,
         height: 200,
         margin: 1,
+    },
+    contimage:{
+        alignItems:"center"
     },
     imageContainer: {
         width: 40,
@@ -73,9 +77,12 @@ const styles = StyleSheet.create({
     },
     container: {
         flex:1,
+        flexDirection: "row",
         backgroundColor: '#fff',
-        alignItems: 'stretch',
-        justifyContent: 'space-around',
+        alignItems: 'center',
+        justifyContent: "center",
+        marginTop:20,
+        marginBottom: 10,
     },
     
 });

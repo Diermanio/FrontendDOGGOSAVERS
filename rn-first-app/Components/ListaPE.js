@@ -93,6 +93,7 @@ const ListaPE = props =>{
               <Picker.Item label="Adulto" value={"&edad=ADULTO"} />
           </Picker>
           <Text>Estado</Text>
+          ..
                 <Picker
                     selectedValue={currentPE}
                     style={{height: 50, width: 400}}
