@@ -12,7 +12,8 @@ const CartaMasUs = props =>{
       idMascota: props.idM,
     });
 
-    
+    const r= {1:{raza:"French"},2:{raza:"Pug"}}
+    const s= {"M":{sexo:"Macho"},"H":{sexo:"Hembra"}}
 
    const f2= async () => await fetch("http://10.0.2.2:8000/mascotas/mascota_adoptada/?idMascota="+props.idM)
             .then((response) => response.json())
@@ -52,7 +53,7 @@ const CartaMasUs = props =>{
             <View style={styles.fila}>
                 <View style={styles.bloque}>
                     <Text>Raza</Text>
-                    <Text style={styles.caja}>{props.raza}</Text>
+                    <Text style={styles.caja}>{r[props.raza[0]].raza}</Text>
                 </View>
                 <View style={styles.bloque}>
                     <Text>Peso</Text>
@@ -69,6 +70,13 @@ const CartaMasUs = props =>{
                     <Text style={styles.caja}>{props.edad}</Text>
                 </View >
             </View>
+            <View style={styles.fila}>
+               <View style={styles.bloque}>
+                    <Text>Sexo</Text>
+                     <Text style={styles.caja}>{s[props.sexo].sexo}</Text>
+                </View>
+            </View>
+            
             <View style={styles.fila}>
                <View style={styles.bloque}>
                     <Text>Dueño</Text>

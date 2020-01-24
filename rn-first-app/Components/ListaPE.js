@@ -93,7 +93,7 @@ const ListaPE = props =>{
               <Picker.Item label="Adulto" value={"&edad=ADULTO"} />
           </Picker>
           <Text>Estado</Text>
-          ..
+          
                 <Picker
                     selectedValue={currentPE}
                     style={{height: 50, width: 400}}
@@ -108,7 +108,7 @@ const ListaPE = props =>{
           </View>
   </View>
         <ScrollView style={styles.contenedor}>
-            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
+            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} sexo={mascota.sexo} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
             altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav} tipob="P/E" num={2}/>)}
         </ScrollView>
         </View>

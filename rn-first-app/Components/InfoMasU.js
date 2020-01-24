@@ -21,7 +21,7 @@ import Datos from "./CartaMasUs";
                 <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
             </View>
             <Datos idM={params.id} detalle={params.detalle} raza={params.raza} peso={params.peso} 
-            altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob} nav={nav} />
+            altura={params.altura} edad={params.edad} dueño={params.dueño} tipo={params.tipob} nav={nav} sexo={params.sexo}/>
         </ScrollView>
       );
     }

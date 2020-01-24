@@ -8,6 +8,9 @@ const CartaMascota = props =>{
     const [mas, setMas] = useState([]);
     const url = "http://10.0.2.2:8000/usuarios/usuario/?tipo="+ props.tipo+"&mascota=" + props.dueño
 
+    const r= {1:{raza:"French"},2:{raza:"Pug"}}
+    const s= {"M":{sexo:"Macho"},"H":{sexo:"Hembra"}}
+    
      useEffect(()=>{
              fetch(url)
              .then((response) => response.json())
@@ -41,7 +44,7 @@ const CartaMascota = props =>{
             <View style={styles.fila}>
                 <View style={styles.bloque}>
                     <Text>Raza</Text>
-                    <Text style={styles.caja}>{props.raza}</Text>
+                    <Text style={styles.caja}>{r[props.raza[0]].raza}</Text>
                 </View>
                 <View style={styles.bloque}>
                     <Text>Peso</Text>
@@ -57,6 +60,12 @@ const CartaMascota = props =>{
                     <Text>Edad</Text>
                     <Text style={styles.caja}>{props.edad}</Text>
                 </View >
+            </View>
+            <View style={styles.fila}>
+               <View style={styles.bloque}>
+                    <Text>Sexo</Text>
+                     <Text style={styles.caja}>{s[props.sexo].sexo}</Text>
+                </View>
             </View>
             <View style={styles.fila}>
                <View style={styles.bloque}>

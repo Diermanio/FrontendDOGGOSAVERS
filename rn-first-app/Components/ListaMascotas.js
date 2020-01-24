@@ -78,7 +78,7 @@ const ListaMascotas = props =>{
                   setCurrentRaza(itemValue)
               }>
                 <Picker.Item label="Ninguna" value={"&raza=N"} />
-                <Picker.Item label="French" value={"&raza=1"} />
+              <Picker.Item label="French" value={"&raza=1"} />
               <Picker.Item label="Pug" value={"&raza=2"} />
           </Picker>
           <Text>Edad</Text>
@@ -97,7 +97,7 @@ const ListaMascotas = props =>{
           </View>
   </View>
         <ScrollView style={styles.contenedor}>
-            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
+            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} sexo={mascota.sexo} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
             altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav} tipob="ADOP" num={2}/>)}
         </ScrollView>
         </View>

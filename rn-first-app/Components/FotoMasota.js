@@ -18,6 +18,7 @@ const FotoMasccota = props =>{
       detalle:props.detalle,
       tipob: props.tipob,
       id:props.id,
+      sexo:props.sexo,
     });
 
     const func1=()=> props.nav.navigate('InfoM',{
@@ -29,6 +30,7 @@ const FotoMasccota = props =>{
       dueño:props.id,
       detalle:props.detalle,
       tipob: props.tipob,
+      sexo:props.sexo,
     });
 
     const ver=() =>{

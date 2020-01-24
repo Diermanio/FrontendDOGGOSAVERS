@@ -35,7 +35,7 @@ const ListaMascotaUs = props =>{
     return (
       <View style={styles.parent}>
         <ScrollView style={styles.contenedor}>
-            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
+            {mas.map(mascota=> <Foto key={mascota.id} nombre={mascota.nombre} sexo={mascota.sexo} image={mascota.imagen} nexts={props.nexts}  raza={mascota.razas} peso={mascota.peso} 
             altura={mascota.altura} edad={mascota.edad_aproximada} detalle={mascota.detalles} id={mascota.id} nav={props.nav} tipob="ADOPUS" num={1} id={mascota.id}/>)}
         </ScrollView>
         </View>
