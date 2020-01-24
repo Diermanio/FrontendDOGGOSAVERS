@@ -78,8 +78,8 @@ const ListaPE = props =>{
                   setCurrentRaza(itemValue)
               }>
                 <Picker.Item label="Ninguna" value={"&raza=N"} />
-              <Picker.Item label="Chihuahua" value={"&raza=1"} />
-              <Picker.Item label="French" value={"&raza=2"} />
+              <Picker.Item label="French" value={"&raza=1"} />
+              <Picker.Item label="Pug" value={"&raza=2"} />
           </Picker>
           <Text>Edad</Text>
           <Picker
