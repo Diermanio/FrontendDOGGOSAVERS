@@ -31,6 +31,7 @@ const FotoMasccota = props =>{
       detalle:props.detalle,
       tipob: props.tipob,
       sexo:props.sexo,
+      perdida:props.perdida,
     });
 
     const ver=() =>{

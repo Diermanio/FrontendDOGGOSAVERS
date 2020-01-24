@@ -6,11 +6,12 @@ import { StyleSheet, Text, View, Image, Picker, Modal, Button,ScrollView, Toucha
 const CartaMascota = props =>{
     
     const [mas, setMas] = useState([]);
+    const [perd, setPerd] = useState([]);
     const url = "http://10.0.2.2:8000/usuarios/usuario/?tipo="+ props.tipo+"&mascota=" + props.dueño
-
+    const url2 = "http://10.0.2.2:8000/mascotas/mascota_perdida_encontrada/?tipo=IDM&idMascota="+ props.dueño
     const r= {1:{raza:"French"},2:{raza:"Pug"}}
     const s= {"M":{sexo:"Macho"},"H":{sexo:"Hembra"}}
-    
+
      useEffect(()=>{
              fetch(url)
              .then((response) => response.json())
@@ -25,6 +26,24 @@ const CartaMascota = props =>{
              });
  
            } , []);
+
+    if(props.perdida){
+     useEffect(()=>{
+            fetch(url2)
+            .then((response) => response.json())
+            .then((responseJson) => {
+              return responseJson;
+            })
+            .then( masco  => {
+              setPerd(masco);
+            })
+            .catch( error => {
+              console.error(error);
+            });
+
+          } , []);
+      }
+
 
     const datosUs= ()=> props.nav.navigate('PUM',{
             username:mas[0].username,
@@ -67,6 +86,17 @@ const CartaMascota = props =>{
                      <Text style={styles.caja}>{s[props.sexo].sexo}</Text>
                 </View>
             </View>
+            {perd.map(user=>(<View style={styles.fila}>
+               <View style={styles.bloque}>
+                    <Text>Sector</Text>
+                    <Text style={styles.caja}> {user.sector_encuentro_perdida}</Text>
+                </View>
+                <View style={styles.bloque}>
+                    <Text style={{textAlign:"center"}}>Informacion Adicional</Text>
+                    <Text style={styles.caja}> {user.detalle}</Text>
+                </View>
+            </View>) )}
+            
             <View style={styles.fila}>
                <View style={styles.bloque}>
                     <Text>Dueño</Text>
