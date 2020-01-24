@@ -55,8 +55,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 
       return (
         <View style={styles.container}>
-          <Banner titulo="Bienvenido a DOGGOSAVERS" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} per={log} />
-        
+          <Banner titulo="Doggo Savers" ImagenDer={require('../assets/profile.png')} per={log} />
+          {/* ImagenIzq={require('../assets/peth.png')}  */}
           <View  >
             <Image  style={styles.image} resizeMode="contain" source={require('../assets/peth.png')}/>
           </View>

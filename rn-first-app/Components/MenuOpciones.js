@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
       },
       fila2:{
         marginTop:5,
-        backgroundColor: 'green',
+        backgroundColor: '#03dac6',
       }
 });
 
