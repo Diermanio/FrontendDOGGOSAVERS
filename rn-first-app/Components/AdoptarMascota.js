@@ -14,7 +14,7 @@ import Lista from "./ListaMascotas";
       const infom = () => this.props.navigation.navigate('InfoM');
       return (
         <View style={styles.parent}>
-            <Banner titulo="Adoptar Macota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo="Adoptar Macota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/profile.png')} />
             <Lista nexts={infom} nav={this.props.navigation} arg="?tipo=ADOP"/>
         </View>
       );

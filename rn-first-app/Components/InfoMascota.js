@@ -16,7 +16,7 @@ import Datos from "./CartaMascota";
 
       return (
         <ScrollView style={styles.parent}>
-            <Banner titulo={params.nombre} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo={params.nombre} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/profile.png')} />
             <View  style={styles.bloque3}>
                 <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
             </View>

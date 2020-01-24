@@ -14,7 +14,7 @@ import Datos from "./DatosMascota";
         const back=() => this.props.navigation;
       return (
         <View style={styles.parent}>
-          <Banner titulo="Registrar Mascota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')}/>
+          <Banner titulo="Registrar Mascota" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/profile.png')}/>
           <Datos gback={this.props.navigation} rkey={params.key} tipoP={params.tipoP}/>
           
     

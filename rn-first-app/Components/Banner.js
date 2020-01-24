@@ -41,7 +41,7 @@ const Banner = props =>{
 const styles = StyleSheet.create({
   banner: {
     flexDirection: "row",
-    justifyContent: 'space-between',
+    justifyContent: "space-around",
     paddingTop:20,
     paddingBottom:10,
     backgroundColor: '#6200ee',

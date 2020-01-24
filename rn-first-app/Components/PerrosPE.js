@@ -15,7 +15,7 @@ import {macota} from "../Global/global";
       const infom = () => this.props.navigation.navigate('InfoM');
       return (
         <View style={styles.parent}>
-            <Banner titulo="Mascotas Perdidas/Encontradas" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo="Mascotas Perdidas/Encontradas" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/profile.png')} />
             <Lista nexts={infom} nav={this.props.navigation} arg="?tipo=P/E" />
         </View>
       );

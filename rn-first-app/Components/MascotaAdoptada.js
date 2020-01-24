@@ -16,7 +16,7 @@ import Datos from "./InfoAdoptada";
 
       return (
         <ScrollView style={styles.parent}>
-            <Banner titulo={"Mascota Adoptada"} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+            <Banner titulo={"Mascota Adoptada"} ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/profile.png')} />
             <Datos  idMascota={params.idMascota} nav={nav}/>
         </ScrollView>
       );
