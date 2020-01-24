@@ -5,7 +5,7 @@ import MenuOpcion from "./MenuOpcion";
 
 const MenuOpciones = props =>{
     return (
-        <View style={styles.fondo}>
+        <View >
            <View style={[styles.fila, styles.fila1]}>
             <MenuOpcion ppe={props.game} fun={1} Texto="Juega " Imagen={require("../assets/tennis.jpg")} />
             <MenuOpcion ppe={props.adop} fun={2} Texto="Adopta " Imagen={require("../assets/adopt.png")} />
