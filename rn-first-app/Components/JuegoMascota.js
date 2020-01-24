@@ -1,79 +1,86 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker, Button, Modal, TouchableHighlight } from 'react-native';
+import { StyleSheet, Image,Text, View, Picker, Button, Modal, TouchableHighlight,ScrollView } from 'react-native';
+import PerrosPE from "./PerrosPE";
 import Banner from "./Banner";
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Transitioning } from 'react-native-reanimated';
 
 class JuegaMascota extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            pickerSelection: 'Default value!',
-            pickerDisplayed: false
+            puntaje: 0,
+            pregunta: 0,
+            fin: false
+            }
+    }
+
+    async siguientePregunta(pr,pun){
+       await this.setState({puntaje: this.state.puntaje+ pr[this.state.pregunta][pun]})
+        console.log(this.state.puntaje)
+        console.log(pr[this.state.pregunta][pun])
+        var size = pr.length
+         this.componentDidUpdate
+        if(this.state.pregunta < size-1){
+             await this.setState({
+             pregunta: this.state.pregunta + 1,
+            })
+        }
+        else if(this.state.pregunta == size-1){
+            this.setState({fin:true})
         }
     }
-
-    setPickerValue(newValue) {
-        this.setState({
-            pickerSelection: newValue
-        })
-
-        this.togglePicker();
-    }
-
-    togglePicker() {
-        this.setState({
-            pickerDisplayed: !this.state.pickerDisplayed
-        })
-    }
-
+    
     render() {
-        const pickerValues = [
+        const { params } = this.props.navigation.state;
+        const nav= this.props.navigation;
+        const preguntas = [
             {
-                title: 'Te gusta salir mucho',
-                value: 'Husky'
+                pregunta:"¿Qué tanto te gusta salir de casa?",
+                opcion1:"Frecuentemente",
+                puntaje1: 5,
+                opcion2:"Pocas veces",
+                puntaje2: 3
             },
             {
-                title: 'Sales muy poco de casa',
-                value: 'Chihua'
+                pregunta:"¿Comes mucho o poco?",
+                opcion1:"Mucho",
+                puntaje1: 5,
+                opcion2:"Poco",
+                puntaje2: 3
             },
             {
-                title: 'Es un promedio',
-                value: 'Puddle'
+                pregunta:"¿En tus dias libres, prefieres salir o descansar en casa?",
+                opcion1:"Descanso en casa",
+                puntaje1: 5,
+                opcion2:"Salgo a pasear",
+                puntaje1: 3
             }
         ]
-
         return (
             
-            <View style={styles.container}>
-                <Banner titulo="Trivia" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
-                <Text>El perro que necesitas es un: {this.state.pickerSelection}</Text>
-                <Button onPress={() => this.togglePicker()} title={"¿Qué tanto te gusta salir de casa?"} />
+            <ScrollView style={styles.container }>
+                <Banner titulo="Tu compañero ideal es..." ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+                {/* <Text>El perro que necesitas es un: {this.state.pickerSelection}</Text> */}
 
-
-                <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
-                    <View style={{
-                        margin: 20, padding: 20,
-                        backgroundColor: '#efefef',
-                        bottom: 20,
-                        left: 20,
-                        right: 20,
-                        alignItems: 'center',
-                        position: 'absolute'
-                    }}>
-                        <Text>Escoge una opcion :D</Text>
-                        {pickerValues.map((value, index) => {
-                            return <TouchableHighlight key={index} onPress={() => this.setPickerValue(value.value)} style={{ paddingTop: 4, paddingBottom: 4 }}>
-                                <Text>{value.title}</Text>
-                            </TouchableHighlight>
-                        })}
-
-
-                        <TouchableHighlight onPress={() => this.togglePicker()} style={{ paddingTop: 4, paddingBottom: 4 }}>
-                            <Text style={{ color: '#999' }}>Cancel</Text>
-                        </TouchableHighlight>
-                    </View>
-                </Modal>
-            </View>
+                <Modal   visible={!this.state.fin} transparent={true}>
+                    <Banner titulo="Comencemos con la trivia" ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+                        <View style={styles.quiz_container}>
+                            <View >
+                                <Text  style={styles.texto}>{preguntas[this.state.pregunta]["pregunta"]}</Text> 
+                            </View>
+                            <View style={styles.respuestas}>
+                                {<Button style={styles.botones} onPress={() =>  this.siguientePregunta(preguntas,"puntaje1")}  title={preguntas[this.state.pregunta]["opcion1"]}/>}
+                            </View> 
+                            <View style={styles.respuestas}>
+                                { <Button  style={styles.botones} onPress={() => this.siguientePregunta(preguntas,"puntaje2")} title={preguntas[this.state.pregunta]["opcion2"]}/>}
+                            </View>
+                        </View>
+                 </Modal>
+                 <View>
+                    <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
+                </View>
+            </ScrollView>
     );
     }
 }
@@ -82,8 +89,22 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        // alignItems: 'center',
-        // justifyContent: 'center',
+    },
+    quiz_container: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+      flex: 1
+    },
+    respuestas: {
+        marginTop:20,
+        backgroundColor: '#f2f',
+
+    },
+    texto: {
+        fontSize:20,
+        textAlign:"center"
     },
 });
 

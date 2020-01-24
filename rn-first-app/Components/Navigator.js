@@ -16,6 +16,8 @@ import MasUs from "./MascotasUs";
 import InfoMasUs from "./InfoMasU";
 import PerfilUsMas from "./PerfilUsMas"
 import MascotaAdoptada from './MascotaAdoptada';
+import MascotaUsRep from './MascotasUsRep';
+import InfoMasURep from './InfoMasURep';
 
 const AppNavigator = createStackNavigator(
     {
@@ -31,7 +33,9 @@ const AppNavigator = createStackNavigator(
         MUs: { screen: MasUs},
         InfoMus: { screen: InfoMasUs},
         PUM: { screen: PerfilUsMas},
-        MA:{screen: MascotaAdoptada}
+        MA:{screen: MascotaAdoptada},
+        REPUS:{screen: MascotaUsRep},
+        INFOMREP:{screen: InfoMasURep}
     },
     {
         initialRouteName: 'Home',

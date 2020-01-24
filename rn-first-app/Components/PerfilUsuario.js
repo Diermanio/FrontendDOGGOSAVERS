@@ -20,6 +20,7 @@ class PerfilUsuario extends React.Component {
 
         const mascotasus = () => this.props.navigation.navigate('MUs');
 
+        const repus = () => this.props.navigation.navigate('REPUS');
       
         return (
             <ScrollView style={styles.parent}>
@@ -28,6 +29,7 @@ class PerfilUsuario extends React.Component {
                 <View >
                     <Button style={styles.botones} title="Poner mascota en adopción" onPress={registrar}/>
                     <Button style={styles.botones} title="Lista de mascotas en adopción " onPress={mascotasus}/>
+                    <Button style={styles.botones} title="Lista de reportes " onPress={repus}/>
                     <Button style={styles.botones} title="Cerrar Sesion" onPress={logOut}/>
                 </View>
             </ScrollView>

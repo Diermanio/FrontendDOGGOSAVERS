@@ -34,14 +34,33 @@ const FotoMasccota = props =>{
       perdida:props.perdida,
     });
 
+ 
+
+    const func3 =()=> props.nav.navigate('INFOMREP',{
+      nombre:props.nombre,
+      raza:props.raza,
+      peso:props.peso,
+      altura:props.altura,
+      edad:props.edad,
+      dueño:props.id,
+      detalle:props.detalle,
+      tipob: props.tipob,
+      sexo:props.sexo,
+      id:props.id,
+      perdida:props.perdida,
+    });
+
     const ver=() =>{
-      if(props.num!=1){
+      if(props.num==1){
         console.log("no manqueaste vida")
-        func1();
+        func2();
+      }else if(props.num==3){
+        console.log("si entro reportes")
+        func3();
       }else{
         console.log("numn")
         console.log(props.num)
-        func2();
+        func1();
       }
     }
 
