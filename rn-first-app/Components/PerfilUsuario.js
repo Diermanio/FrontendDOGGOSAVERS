@@ -25,9 +25,11 @@ class PerfilUsuario extends React.Component {
             <ScrollView style={styles.parent}>
                 <BannerPerfil titulo={global.datos[0].username} ImagenIzq={require('../assets/peth.png')} />
                 <Datos id={global.datos[0].persona}/>
-                <Button title="Poner mascota en adopción" onPress={registrar}/>
-                <Button title="Lista de mascotas en adopción " onPress={mascotasus}/>
-                <Button title="Cerrar Sesion" onPress={logOut}/>
+                <View >
+                    <Button style={styles.botones} title="Poner mascota en adopción" onPress={registrar}/>
+                    <Button style={styles.botones} title="Lista de mascotas en adopción " onPress={mascotasus}/>
+                    <Button style={styles.botones} title="Cerrar Sesion" onPress={logOut}/>
+                </View>
             </ScrollView>
         );
     }
@@ -61,5 +63,8 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         justifyContent: 'space-around',
     },
+    botones:{
+        marginTop:10,
+    }
 });
 export default PerfilUsuario;  

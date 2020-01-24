@@ -4,11 +4,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 const Banner = props =>{
     return (
     <View style={styles.banner}>
-        <View  style={styles.circle}>
-          <Image style={styles.image}  resizeMode="contain" source={props.ImagenIzq}/>
-        </View>
         <View style={styles.title}>
-            <Text >{props.titulo}</Text>
+            <Text style={styles.title}>{props.titulo}</Text>
         </View>
     </View> 
   );}
@@ -18,18 +15,25 @@ const Banner = props =>{
 const styles = StyleSheet.create({
   banner: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
+    alignItems: "center",
     paddingTop:20,
-    paddingBottom:10,
-    backgroundColor: 'red',
+    paddingBottom:20,
+    backgroundColor: '#6200ee',
   },
   title:{
     paddingTop:20,
+    color: '#ffffff',
+    alignContent:'flex-start',
+    fontFamily: 'Awesome',
+    fontSize: 30,
   },
   image: {
     width: 40,
     height: 40,
-    margin:1,
+    margin:2,
+    justifyContent:'flex-end',
+    
   },
   circle:{
     borderColor: 'black',
@@ -37,7 +41,13 @@ const styles = StyleSheet.create({
     padding:3,
     backgroundColor: 'white',
     borderWidth:2,
-  }
+    marginTop: 4,
+  },
+    text:{
+    textAlign: "center",
+    fontFamily: "Awesome",
+    
+}
 });
 
 export default Banner;
