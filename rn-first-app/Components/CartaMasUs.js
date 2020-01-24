@@ -8,6 +8,7 @@ const CartaMasUs = props =>{
     const [mas, setMas] = useState([]);
     const [masADOP, setMasADOP] = useState([]);
     const [masNOADOP, setMasNOADOP] = useState([]);
+    const [cont, setCont] = useState(0);
     const func = ()=> props.nav.navigate("MA",{
       idMascota: props.idM,
     });
@@ -40,7 +41,10 @@ const CartaMasUs = props =>{
        }
 
     };
-    ver();
+    if(cont==0){
+      ver();
+      setCont(1);
+  }
     console.log(mas);
     return (
         <View>

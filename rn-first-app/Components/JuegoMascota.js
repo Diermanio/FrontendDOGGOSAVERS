@@ -4,8 +4,11 @@ import PerrosPE from "./PerrosPE";
 import Banner from "./Banner";
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Transitioning } from 'react-native-reanimated';
+import Foto from "./FotoMasota";
 
 class JuegaMascota extends React.Component {
+    static navigationOptions = { headerShown: false, title: 'Welcome', }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -61,6 +64,7 @@ class JuegaMascota extends React.Component {
             
             <ScrollView style={styles.container }>
                 <Banner titulo="Tu compañero ideal es..." ImagenIzq={require('../assets/peth.png')} ImagenDer={require('../assets/dogwalk.png')} />
+                
                 {/* <Text>El perro que necesitas es un: {this.state.pickerSelection}</Text> */}
 
                 <Modal   visible={!this.state.fin} transparent={true}>
@@ -79,6 +83,7 @@ class JuegaMascota extends React.Component {
                  </Modal>
                  <View>
                     <Image  style={styles.image} resizeMode="contain" source={require("../assets/perro.jpg")}/>
+                    <Text style={{textAlign:"center"}}>Juancho</Text>
                 </View>
             </ScrollView>
     );
