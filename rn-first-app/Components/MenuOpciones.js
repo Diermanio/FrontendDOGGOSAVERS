@@ -7,19 +7,19 @@ const MenuOpciones = props =>{
     return (
         <View style={styles.fondo}>
            <View style={[styles.fila, styles.fila1]}>
-            <MenuOpcion ppe={props.game} fun={1} Texto="Juega y descubre tu macota ideal" Imagen={require("../assets/peth.png")} />
-            <MenuOpcion ppe={props.adop} fun={2} Texto="Adopta a un compañero" Imagen={require("../assets/peth.png")} />
+            <MenuOpcion ppe={props.game} fun={1} Texto="Juega " Imagen={require("../assets/tennis.jpg")} />
+            <MenuOpcion ppe={props.adop} fun={2} Texto="Adopta " Imagen={require("../assets/adopt.png")} />
            </View>
            <View style={[styles.fila, styles.fila2]} >
-            <MenuOpcion  ppe={props.rep} fun={3} Texto="Reporta mascotas perdidas o encontradas" Imagen={require("../assets/peth.png")} />
-            <MenuOpcion ppe={props.ppe} fun={4} Texto="Explora mascotas perdidas y encontradas" Imagen={require("../assets/peth.png")} />
+            <MenuOpcion  ppe={props.rep} fun={3} Texto="Reporta " Imagen={require("../assets/megaphone.jpg")} />
+            <MenuOpcion ppe={props.ppe} fun={4} Texto="Explora " Imagen={require("../assets/lupa.png")} />
            </View>
            
         </View>
   );}
 
 
-
+// 
 const styles = StyleSheet.create({
     fondo:{
         backgroundColor: '#ffffff'

@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
   title:{
     paddingTop:20,
     color: '#ffffff',
-    fontWeight: 'bold',
     alignContent:'flex-start',
     fontFamily: 'Awesome',
     fontSize: 30,
+    marginLeft: 20,
   },
   image: {
     width: 40,
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
   },
     text:{
     textAlign: "center",
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Awesome",
+    
 }
 });
 

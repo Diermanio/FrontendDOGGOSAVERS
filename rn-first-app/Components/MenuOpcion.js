@@ -26,7 +26,7 @@ const MenuOpcion = props =>{
   const fetchFonts = () => {
     return Font.loadAsync({
     'Montserrat-Regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
-    
+    'Awesome': require('../assets/fonts/Awesome.ttf'),
     });
     };
   const[dataLoaded, setDataLoaded]= useState(false);
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
       },
       text:{
           textAlign: "center",
-          fontFamily: "Montserrat-Regular",
+          fontFamily: "Awesome",
       }
 });
 
